@@ -43,5 +43,35 @@
 #
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
-# =============================================================================
 
+def get_grade(score):
+    # Validate range
+    if not (0 <= score <= 100):
+        return None
+    # Determine letter grade
+    if score >= 80:
+        return "A"
+    if score >= 70:
+        return "B"
+    if score >= 60:
+        return "C"
+    if score >= 50:
+        return "D"
+    return "F"
+
+def main():
+    try:
+        score = int(input("Enter student score (0-100): "))
+    except ValueError:
+        print("Error: Score must be a number between 0 and 100.")
+        return
+
+    grade = get_grade(score)
+    if grade is None:
+        print("Error: Score must be between 0 and 100.")
+    else:
+        print("Grade:", grade)
+
+if __name__ == "__main__":
+    main()
+# =============================================================================
